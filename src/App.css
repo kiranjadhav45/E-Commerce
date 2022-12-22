@@ -1,0 +1,16 @@
+.btn-primary {
+  width: 100% !important;
+}
+.nav-right {
+  margin-left: auto !important;
+  /* text-align: right !important; */
+}
+
+.navbar-brand img {
+  width: 50px !important;
+  border-radius: 20px !important;
+  margin-right: 1vh;
+}
+.invalidinput {
+  color: crimson;
+}

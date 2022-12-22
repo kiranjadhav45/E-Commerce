@@ -1,0 +1,25 @@
+.navbar-brand {
+  color: white !important;
+}
+.navbar {
+  background-color: black !important;
+}
+.nav-link {
+  color: white !important;
+}
+.logOut {
+  margin-left: auto !important;
+}
+.background {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+/* #footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+} */
+
+.addheight {
+  height: 10vh;
+}
