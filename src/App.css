@@ -14,3 +14,20 @@
 .invalidinput {
   color: crimson;
 }
+.product-list {
+  text-align: center !important;
+}
+
+.product-list ul li {
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid black;
+  width: 150px;
+}
+.product-list ul {
+  margin: 0;
+}
+#first-ul li {
+  background-color: rgba(0, 0, 0, 0.025);
+  font-weight: 700;
+}
