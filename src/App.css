@@ -20,7 +20,7 @@
 
 .product-list ul li {
   display: inline-block;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid black;
   width: 150px;
 }
@@ -30,4 +30,7 @@
 #first-ul li {
   background-color: rgba(0, 0, 0, 0.025);
   font-weight: 700;
+}
+#Operartion {
+  padding: 5px !important;
 }

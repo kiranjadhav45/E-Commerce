@@ -44,7 +44,7 @@ function ProductList() {
             <li>{item.price}</li>
             <li>{item.category}</li>
             <li>{item.company}</li>
-            <li>
+            <li id="Operartion">
               <button
                 onClick={() => deleteProduct(item._id)}
                 className="btn-sm btn-secondary"
