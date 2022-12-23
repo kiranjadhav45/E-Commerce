@@ -1,12 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+// import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function UpdateProduct() {
   const [name, setName] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [company, setCompany] = React.useState("");
   const [price, setPrice] = React.useState("");
-  const [error, setError] = React.useState(false);
+  const [error] = React.useState(false);
+  const params = useParams();
+  const [data, setData] = React.useState([]);
+
+  useEffect(() => {
+    getProductDetails();
+  });
+
+  const getProductDetails = async () => {
+    console.warn(params);
+    let result = await fetch(`http://localhost:4000/products/${params.id}`);
+    result = await result.json();
+    console.warn(result);
+
+    setData(result);
+    setName(result.name);
+    setPrice(result.price);
+    setCategory(result.category);
+    setCompany(result.company);
+  };
 
   const updateProduct = async () => {
     console.log(name, category, company, price);
@@ -20,7 +41,7 @@ function UpdateProduct() {
         {/* <!-- Name input --> */}
         <div className="form-outline mb-4">
           <input
-            value={name}
+            defaultValue={data.name}
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -40,7 +61,7 @@ function UpdateProduct() {
         {/* <!-- category input --> */}
         <div className="form-outline mb-4">
           <input
-            value={category}
+            defaultValue={data.category}
             onChange={(e) => {
               setCategory(e.target.value);
             }}
@@ -60,7 +81,7 @@ function UpdateProduct() {
         {/* <!-- Company input --> */}
         <div className="form-outline mb-4">
           <input
-            value={company}
+            defaultValue={data.company}
             onChange={(e) => {
               setCompany(e.target.value);
             }}
@@ -80,7 +101,7 @@ function UpdateProduct() {
         {/* <!-- Price input --> */}
         <div className="form-outline mb-4">
           <input
-            value={price}
+            defaultValue={data.price}
             onChange={(e) => {
               setPrice(e.target.value);
             }}
