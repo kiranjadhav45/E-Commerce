@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 // import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function UpdateProduct() {
   const [name, setName] = React.useState("");
@@ -11,16 +11,17 @@ function UpdateProduct() {
   const [error] = React.useState(false);
   const params = useParams();
   const [data, setData] = React.useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProductDetails();
   });
 
   const getProductDetails = async () => {
-    console.warn(params);
+    // console.warn(params);
     let result = await fetch(`http://localhost:4000/products/${params.id}`);
     result = await result.json();
-    console.warn(result);
+    // console.warn(result);
 
     setData(result);
     setName(result.name);
@@ -29,8 +30,34 @@ function UpdateProduct() {
     setCompany(result.company);
   };
 
+  // const updateProduct = async () => {
+  //   // console.log(name, category, company, price);
+  //   let result = fetch(`http://localhost:4000/product/${params.id}`, {
+  //     method: "Put",
+  //     body: JSON.stringify({ name, category, company, price }),
+  //     headers: { "Content-Type": "application/json" },
+  //   });
+  //   result = await result.json;
+  //   console.warn(result);
+  //   navigate("/products");
+  // };
+
   const updateProduct = async () => {
-    console.log(name, category, company, price);
+    // console.log(name, category, company, price);
+    let result = fetch(`http://localhost:4000/product/${params.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        category,
+        company,
+        price,
+      }),
+    });
+
+    result = await result.json;
+    console.warn(result);
+    navigate("/products");
   };
 
   return (

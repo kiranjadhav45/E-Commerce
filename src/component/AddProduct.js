@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
   const [name, setName] = React.useState("");
@@ -7,7 +7,7 @@ function AddProduct() {
   const [company, setCompany] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [error, setError] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleOnSubmit = async () => {
     if (!name || !category || !company || !price) {
       setError(true);
@@ -16,7 +16,7 @@ function AddProduct() {
 
     // console.warn(name, category, company, price);
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    console.warn(userId);
+    // console.warn(userId);
 
     let result = await fetch("http://localhost:4000/add-product", {
       method: "post",
@@ -25,7 +25,9 @@ function AddProduct() {
     });
 
     result = await result.json();
-    console.warn(result);
+    navigate("/products");
+
+    // console.warn(result);
   };
 
   return (
