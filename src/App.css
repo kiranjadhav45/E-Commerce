@@ -32,5 +32,23 @@
   font-weight: 700;
 }
 #Operartion {
-  padding: 5px !important;
+  padding: 9px !important;
 }
+
+.deleteButton button {
+  background: none;
+  color: rgba(238, 12, 31, 0.69);
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* #Operartion Link {
+  background: none;
+  color: rgba(238, 12, 31, 0.69);
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+} */

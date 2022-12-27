@@ -55,11 +55,11 @@ function Navbar() {
                     </Link>
                   </li>
 
-                  <li className="nav-item  mx-3">
+                  {/* <li className="nav-item  mx-3">
                     <Link className="nav-link " to="/update">
                       Update Products
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
 
                 <ul className="navbar-nav nav-right">

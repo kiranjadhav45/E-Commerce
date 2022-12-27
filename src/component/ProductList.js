@@ -31,7 +31,7 @@ function ProductList() {
   return (
     <div className="product-list">
       <h3 className="text-center mt-4">Product List</h3>
-      <div className="container">
+      <div className="container  deleteButton">
         <ul id="first-ul">
           <li>Sr No</li>
           <li>Name</li>
@@ -48,10 +48,10 @@ function ProductList() {
             <li>{item.category}</li>
             <li>{item.company}</li>
             <li id="Operartion">
-              <button onClick={() => deleteProduct(item._id)}>
+              <button className="mx-3" onClick={() => deleteProduct(item._id)}>
                 <AiFillDelete />
               </button>
-              <Link to={"/update/" + item._id}>
+              <Link className="" to={"/update/" + item._id}>
                 <FaRegEdit />
               </Link>
             </li>
