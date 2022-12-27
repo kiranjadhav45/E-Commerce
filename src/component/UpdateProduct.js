@@ -15,7 +15,7 @@ function UpdateProduct() {
 
   useEffect(() => {
     getProductDetails();
-  });
+  }, []);
 
   const getProductDetails = async () => {
     // console.warn(params);
@@ -43,15 +43,15 @@ function UpdateProduct() {
   // };
 
   const updateProduct = async () => {
-    // console.log(name, category, company, price);
+    console.warn("aaaa", name, category, company, price);
     let result = fetch(`http://localhost:4000/product/${params.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name,
-        category,
-        company,
-        price,
+        name: name,
+        category: category,
+        company: company,
+        price: price,
       }),
     });
 

@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaRegEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -46,13 +48,12 @@ function ProductList() {
             <li>{item.category}</li>
             <li>{item.company}</li>
             <li id="Operartion">
-              <button
-                onClick={() => deleteProduct(item._id)}
-                className="btn-sm btn-secondary mx-1"
-              >
-                Delete
+              <button onClick={() => deleteProduct(item._id)}>
+                <AiFillDelete />
               </button>
-              <Link to={"/update/" + item._id}>Update</Link>
+              <Link to={"/update/" + item._id}>
+                <FaRegEdit />
+              </Link>
             </li>
           </ul>
         ))}
